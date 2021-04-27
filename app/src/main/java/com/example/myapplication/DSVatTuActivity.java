@@ -17,12 +17,6 @@ import java.util.ArrayList;
 
 public class DSVatTuActivity extends AppCompatActivity {
     private static int REQUEST_CODE = 1;
-    EditText edtmaVT,edttenVT,edtdvTinh,edtgiaVC;
-    ImageView imgAnh;
-    ArrayList<VatTu> data =new ArrayList<>();
-    Button btnInsert,btnDelete,btnUpdate,btnLoad;
-    CustomAdapter_VatTu adapter;
-    VatTu vatTu;
     DBHelper DBhelper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

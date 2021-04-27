@@ -36,6 +36,17 @@ public class DBHelper extends SQLiteOpenHelper {
         statement.bindBlob(4,hinh);
         statement.executeInsert();
     }
+    void InsertCT(String maCT,String tenVT,String diaChi)
+    {
+        SQLiteDatabase db=getWritableDatabase();
+        String sql="Insert into congtrinh values (?,?,?)";
+        SQLiteStatement statement=db.compileStatement(sql);
+        statement.clearBindings();
+        statement.bindString(1,maCT);
+        statement.bindString(2,tenVT);
+        statement.bindString(3,diaChi);
+        statement.executeInsert();
+    }
     @Override
     public void onCreate(SQLiteDatabase db) {
 
