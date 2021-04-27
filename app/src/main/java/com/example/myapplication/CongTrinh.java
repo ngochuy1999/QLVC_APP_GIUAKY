@@ -38,10 +38,6 @@ public class CongTrinh {
 
     @Override
     public String toString() {
-        return "CongTrinh{" +
-                "maCT='" + maCT + '\'' +
-                ", tenCT='" + tenCT + '\'' +
-                ", diaChi='" + diaChi + '\'' +
-                '}';
+        return getTenCT();
     }
 }

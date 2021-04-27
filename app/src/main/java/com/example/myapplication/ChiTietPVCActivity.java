@@ -12,28 +12,28 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
-public class PhieuVanChuyenActivity extends AppCompatActivity {
+public class ChiTietPVCActivity extends AppCompatActivity {
 
     DBHelper DBhelper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_phieu_van_chuyen);
+        setContentView(R.layout.activity_chi_tiet_pvc);
         // GET THONG TIN VT
-        ImageButton imgbtn_addpvc= findViewById(R.id.imgbtn_addpvc);
-        ListView listView = findViewById(R.id.lvPVC);
+        ImageButton imgbtn_addctvc= findViewById(R.id.imgbtn_addctvc);
+        ListView listView = findViewById(R.id.lvCTVC);
 
 
-        ArrayList<PhieuVanChuyen> ArrPVC  = new ArrayList<>();
+        ArrayList<ChiTietPVC> ArrCTVC  = new ArrayList<>();
         DBhelper = new DBHelper(this,"qlvc.sqlite",null,1);
-        Cursor dt= DBhelper.GetData("select * from PVC");
+        Cursor dt= DBhelper.GetData("select * from chitietPVC");
         while(dt.moveToNext())
         {
-            Log.d("SelectPVC", dt.getString(0) + " " + dt.getString(2));
-            PhieuVanChuyen PVC = new PhieuVanChuyen(dt.getString(0),dt.getString(1),dt.getString(2));
-            ArrPVC.add(PVC);
+            Log.d("SelectCTPVC", dt.getString(0) + " " + dt.getString(2));
+            ChiTietPVC CTVC = new ChiTietPVC(dt.getString(0),dt.getInt(1),dt.getInt(2),dt.getInt(3));
+            ArrCTVC.add(CTVC);
         }
-        CustomAdapter_PVC adapter = new CustomAdapter_PVC(ArrPVC);
+        CustomAdapter_CTVC adapter = new CustomAdapter_CTVC(ArrCTVC);
         listView.setAdapter(adapter);
 //        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 //            @Override
@@ -48,10 +48,10 @@ public class PhieuVanChuyenActivity extends AppCompatActivity {
 //        });
 
 
-        imgbtn_addpvc.setOnClickListener(new View.OnClickListener() {
+        imgbtn_addctvc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(PhieuVanChuyenActivity.this, ThemPVCActivity.class);
+                Intent intent = new Intent(ChiTietPVCActivity.this, ThemCTVCActivity.class);
                 startActivity(intent);
             }
         });

@@ -9,12 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
-        <activity android:name=".PhieuVanChuyenActivity"></activity>
+        <activity android:name=".ThemCTVCActivity"></activity>
+        <activity android:name=".ThongKe" />
+        <activity android:name=".ChiTietPVCActivity" />
+        <activity android:name=".PhieuVanChuyenActivity" />
         <activity android:name=".ThemCTActivity" />
         <activity android:name=".ThemVTActivity" />
-        <activity android:name=".DanhsachVT" />
+        <activity android:name=".ThemPVCActivity" />
         <activity android:name=".DSVatTuActivity" />
-        <activity android:name=".VanChuyenActivity" />
         <activity android:name=".CongTrinhActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>

@@ -60,12 +60,6 @@ public class VatTu {
 
     @Override
     public String toString(){
-        return  "VatTu{" +
-                "maVt=" + maVT +
-                ", tenVt='" + tenVt + '\'' +
-                ", dvTinh='" + dvTinh + '\'' +
-                ", hinh='" + hinh + '\'' +
-                ", giaVc='" + giaVc + '\'' +
-                '}';
+        return  getTenVt();
     }
 }

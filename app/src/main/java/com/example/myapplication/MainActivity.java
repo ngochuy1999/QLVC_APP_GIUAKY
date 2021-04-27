@@ -9,7 +9,7 @@ import com.google.android.material.card.MaterialCardView;
 
 public class MainActivity extends AppCompatActivity {
     DBHelper DBhelper;
-    private MaterialCardView cardViewQLVT, cardViewQLCT, cardViewChuyenVT;
+    private MaterialCardView cardViewQLVT, cardViewQLCT, cardViewChuyenVT,cardViewCTVC,cardViewThongKe;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +19,8 @@ public class MainActivity extends AppCompatActivity {
         cardViewQLVT = findViewById(R.id.cv_qlvt);
         cardViewQLCT = findViewById(R.id.cv_qlct);
         cardViewChuyenVT = findViewById(R.id.cv_chuyenVT);
+        cardViewCTVC = findViewById(R.id.cv_qlchitiet);
+        cardViewThongKe = findViewById(R.id.cv_thongke);
 
         cardViewQLVT.setOnClickListener(view -> {
             startActivity(new Intent(this, DSVatTuActivity.class));
@@ -32,7 +34,16 @@ public class MainActivity extends AppCompatActivity {
         });
 
         cardViewChuyenVT.setOnClickListener(view -> {
-            startActivity(new Intent(this, VanChuyenActivity.class));
+            startActivity(new Intent(this, PhieuVanChuyenActivity.class));
+            overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
+        });
+
+        cardViewCTVC.setOnClickListener(view -> {
+            startActivity(new Intent(this, ChiTietPVCActivity.class));
+            overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
+        });
+        cardViewThongKe.setOnClickListener(view -> {
+            startActivity(new Intent(this, ThongKeActivity.class));
             overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
         });
         Init_DB();

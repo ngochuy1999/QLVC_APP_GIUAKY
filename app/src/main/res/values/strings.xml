@@ -9,6 +9,12 @@
     <string name="MaCT">Mã Công Trình</string>
     <string name="TenCT">Tên Công Trình</string>
     <string name="DiaChi">Địa Chỉ</string>
+    <string name="MaPVC">Mã Phiếu Vận Chuyển</string>
+    <string name="ngayVC">Ngày Vận Chuyển</string>
+    <string name="DSPVC">DANH SÁCH PHIẾU VẬN CHUYỂN</string>
+    <string name="CTPVC">CHI TIẾT PHIẾU VẬN CHUYỂN</string>
+    <string name="SL">Số Lượng</string>
+    <string name="Cly">Cự Ly</string>
     <string name="admin">admin</string>
     <string name="admin_login">Administrator Login</string>
     <string name="supervisor">Supervisor</string>

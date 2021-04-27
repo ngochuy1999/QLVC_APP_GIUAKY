@@ -8,111 +8,201 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-   <com.google.android.material.card.MaterialCardView
-       android:id="@+id/cv_qlvt"
+   <LinearLayout
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
-       android:layout_margin="10dp"
-       android:layout_weight="1"
-       app:cardCornerRadius="10dp"
-       app:cardElevation="10dp">
+       android:orientation="horizontal">
 
-      <LinearLayout
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_gravity="center"
-          android:orientation="vertical">
+      <com.google.android.material.card.MaterialCardView
+          android:id="@+id/cv_qlvt"
+          android:layout_width="match_parent"
+          android:layout_height="200dp"
+          android:layout_margin="10dp"
+          android:layout_weight="1"
+          app:cardCornerRadius="10dp"
+          app:cardElevation="10dp">
 
-         <TextView
+         <LinearLayout
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
              android:layout_gravity="center"
-             android:text="Quản Lý Vật Tư"
-             android:textAllCaps="true"
-             android:textColor="@android:color/black"
-             android:textSize="18sp" />
+             android:orientation="vertical">
 
-         <ImageView
-             android:layout_width="50dp"
-             android:layout_height="50dp"
-             android:layout_gravity="center"
-             android:src="@drawable/icon_qlvt" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Quản Lý Vật Tư"
+                android:textAllCaps="true"
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
 
-
-      </LinearLayout>
-
-   </com.google.android.material.card.MaterialCardView>
-
-   <com.google.android.material.card.MaterialCardView
-       android:id="@+id/cv_qlct"
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-       android:layout_weight="1"
-       app:cardCornerRadius="10dp"
-       android:layout_margin="10dp"
-       app:cardElevation="10dp">
-
-      <LinearLayout
-          android:layout_gravity="center"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:orientation="vertical">
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:src="@drawable/icon_qlvt" />
 
 
-         <TextView
+         </LinearLayout>
+
+      </com.google.android.material.card.MaterialCardView>
+
+      <com.google.android.material.card.MaterialCardView
+          android:id="@+id/cv_qlct"
+          android:layout_width="match_parent"
+          android:layout_height="200dp"
+          android:layout_margin="10dp"
+          android:layout_weight="1"
+          app:cardCornerRadius="10dp"
+          app:cardElevation="10dp">
+
+         <LinearLayout
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
-             android:text="Quản Lý Công Trình"
              android:layout_gravity="center"
-             android:textSize="18sp"
-
-             android:textAllCaps="true"
-             android:textColor="@android:color/black" />
-
-         <ImageView
-             android:layout_gravity="center"
-             android:layout_width="50dp"
-             android:layout_height="50dp"
-             android:src="@drawable/icon_qlct"/>
-      </LinearLayout>
+             android:orientation="vertical">
 
 
-   </com.google.android.material.card.MaterialCardView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Quản Lý Công Trình"
+                android:textAllCaps="true"
 
-   <com.google.android.material.card.MaterialCardView
-       android:id="@+id/cv_chuyenVT"
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:src="@drawable/icon_qlct" />
+         </LinearLayout>
+
+
+      </com.google.android.material.card.MaterialCardView>
+
+
+   </LinearLayout>
+   <LinearLayout
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
-       android:layout_weight="1"
-       app:cardCornerRadius="10dp"
-       android:layout_margin="10dp"
-       app:cardElevation="10dp">
+       android:orientation="horizontal">
 
-      <LinearLayout
-          android:layout_gravity="center"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:orientation="vertical">
+      <com.google.android.material.card.MaterialCardView
+          android:id="@+id/cv_chuyenVT"
+          android:layout_width="match_parent"
+          android:layout_height="200dp"
+          android:layout_margin="10dp"
+          android:layout_weight="1"
+          app:cardCornerRadius="10dp"
+          app:cardElevation="10dp">
 
-
-         <TextView
+         <LinearLayout
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
-             android:text="Chuyển Vật Tư"
              android:layout_gravity="center"
-             android:textAllCaps="true"
-             android:textSize="18sp"
-             android:textColor="@android:color/black" />
+             android:orientation="vertical">
 
-         <ImageView
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Vận chuyển"
+                android:textAllCaps="true"
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:src="@drawable/icon_vanchuyen" />
+
+
+         </LinearLayout>
+
+      </com.google.android.material.card.MaterialCardView>
+
+      <com.google.android.material.card.MaterialCardView
+          android:id="@+id/cv_qlchitiet"
+          android:layout_width="match_parent"
+          android:layout_height="200dp"
+          android:layout_margin="10dp"
+          android:layout_weight="1"
+          app:cardCornerRadius="10dp"
+          app:cardElevation="10dp">
+
+         <LinearLayout
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
              android:layout_gravity="center"
-             android:layout_width="50dp"
-             android:layout_height="50dp"
-             android:src="@drawable/icon_vanchuyen"/>
-      </LinearLayout>
+             android:orientation="vertical">
 
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Chi Tiết Vận Chuyển"
+                android:textAllCaps="true"
 
-   </com.google.android.material.card.MaterialCardView>
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
 
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:src="@drawable/icon_ctvc" />
+         </LinearLayout>
+
+
+      </com.google.android.material.card.MaterialCardView>
+
+
+   </LinearLayout>
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:orientation="horizontal">
+
+      <com.google.android.material.card.MaterialCardView
+          android:id="@+id/cv_thongke"
+          android:layout_width="match_parent"
+          android:layout_height="200dp"
+          android:layout_margin="10dp"
+          android:layout_weight="1"
+          app:cardCornerRadius="10dp"
+          app:cardElevation="10dp">
+
+         <LinearLayout
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_gravity="center"
+             android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Thống Kê"
+                android:textAllCaps="true"
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:src="@drawable/icon_vc" />
+
+
+         </LinearLayout>
+
+      </com.google.android.material.card.MaterialCardView>
+
+   </LinearLayout>
 </LinearLayout>

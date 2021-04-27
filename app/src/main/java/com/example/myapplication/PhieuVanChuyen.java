@@ -38,10 +38,6 @@ public class PhieuVanChuyen {
 
     @Override
     public String toString() {
-        return "PhieuVanChuyen{" +
-                "maPVC='" + maPVC + '\'' +
-                ", ngayVC='" + ngayVC + '\'' +
-                ", maCT='" + maCT + '\'' +
-                '}';
+        return getMaPVC();
     }
 }

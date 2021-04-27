@@ -1,13 +1,13 @@
 package com.example.myapplication;
 
 public class ChiTietPVC {
-    String maPVC,maVt;
-    int soLuong,cuLy;
+    String maPVC;
+    int maVt,soLuong,cuLy;
 
     public ChiTietPVC() {
     }
 
-    public ChiTietPVC(String maPVC, String maVt, int soLuong, int cuLy) {
+    public ChiTietPVC(String maPVC, int maVt, int soLuong, int cuLy) {
         this.maPVC = maPVC;
         this.maVt = maVt;
         this.soLuong = soLuong;
@@ -22,11 +22,11 @@ public class ChiTietPVC {
         this.maPVC = maPVC;
     }
 
-    public String getMaVt() {
+    public int getMaVt() {
         return maVt;
     }
 
-    public void setMaVt(String maVt) {
+    public void setMaVt(int maVt) {
         this.maVt = maVt;
     }
 
