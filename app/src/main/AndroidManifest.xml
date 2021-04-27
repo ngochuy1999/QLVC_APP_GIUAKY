@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
         <activity android:name=".ThemCTVCActivity"></activity>
-        <activity android:name=".ThongKe" />
+        <activity android:name=".ThongKeActivity" />
         <activity android:name=".ChiTietPVCActivity" />
         <activity android:name=".PhieuVanChuyenActivity" />
         <activity android:name=".ThemCTActivity" />

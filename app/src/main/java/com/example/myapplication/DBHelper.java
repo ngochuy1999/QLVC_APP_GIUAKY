@@ -1,7 +1,5 @@
 package com.example.myapplication;
 
-
-
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -15,6 +13,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public DBHelper(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
     }
+
     public void QueryData(String sql){
         SQLiteDatabase db= getWritableDatabase();
         db.execSQL(sql);
@@ -47,6 +46,13 @@ public class DBHelper extends SQLiteOpenHelper {
         statement.bindString(3,diaChi);
         statement.executeInsert();
     }
+    public void deleteCT(CongTrinh ct)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "DELETE FROM congtrinh WHERE maCT='" + ct.getMaCT()+"'";
+        db.execSQL(query);
+    }
+
     @Override
     public void onCreate(SQLiteDatabase db) {
 

@@ -36,9 +36,9 @@ public class CustomAdapter_CTVC extends BaseAdapter {
         TextView tvMaPVC =(TextView) viewitem.findViewById(R.id.tvMaPVC);
         tvMaPVC.setText(String.valueOf(Ctvc.getMaPVC()));
         TextView tvMAVT =(TextView) viewitem.findViewById(R.id.tvMaVT);
-        tvMAVT.setText(Ctvc.getMaVt());
+        tvMAVT.setText(String.valueOf(Ctvc.getMaVt()));
         TextView tvSL =(TextView) viewitem.findViewById(R.id.tvSoLuong);
-        tvSL.setText(Ctvc.getSoLuong());
+        tvSL.setText(String.valueOf(Ctvc.getSoLuong()));
         TextView tvCuLy =(TextView) viewitem.findViewById(R.id.tvCuLy);
         tvCuLy.setText(Ctvc.getCuLy()+"km");
 
