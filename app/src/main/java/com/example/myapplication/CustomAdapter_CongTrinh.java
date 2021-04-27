@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -10,6 +11,8 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 
@@ -36,6 +39,7 @@ public class CustomAdapter_CongTrinh extends BaseAdapter {
     public long getItemId(int position) {
         return 0;
     }
+
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -64,6 +68,7 @@ public class CustomAdapter_CongTrinh extends BaseAdapter {
                 notifyDataSetChanged();
             }
         });
+
 
         return viewitem;
     }

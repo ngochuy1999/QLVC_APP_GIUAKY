@@ -53,6 +53,15 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL(query);
     }
 
+    public void updateCT(String tenCT, String diachi, String maCT)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String sql = "Update  congtrinh  set ";
+        sql += "tenCT  = '"+ tenCT+"' ,  ";
+        sql += "diachi  = '"+diachi+"'";
+        sql += "  WHERE maCT  = '"+ maCT+"'";
+        db.execSQL(sql);
+    }
     @Override
     public void onCreate(SQLiteDatabase db) {
 

@@ -7,10 +7,13 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+
+import static com.example.myapplication.ext.ConstExt.POSITION;
 
 public class CongTrinhActivity extends AppCompatActivity {
 
@@ -47,7 +50,14 @@ public class CongTrinhActivity extends AppCompatActivity {
 //            }
 //        });
 
-
+        listViewCT.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                POSITION = position;
+                Intent intent = new Intent(CongTrinhActivity.this, SuaCongTrinhActivity.class);
+                startActivity(intent);
+            }
+        });
         imgbtn_addct.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
