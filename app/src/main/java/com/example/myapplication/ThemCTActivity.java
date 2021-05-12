@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -8,6 +9,8 @@ import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -81,5 +84,24 @@ public class ThemCTActivity extends AppCompatActivity {
         edtTenCT = findViewById(R.id.edtTenCT);
         edtDiaChi = findViewById(R.id.edtDiaChi);
         btnTaoCT = findViewById(R.id.btnTaoCT);
+    }
+    @Override
+    public boolean onCreatePanelMenu(int featureId, @NonNull Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_back, menu);
+        return super.onCreatePanelMenu(featureId, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.memu_home:
+                Intent intent =new Intent(this, MainActivity.class);
+                startActivity(intent);
+                break;
+            case  R.id.memu_back:
+                finish();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

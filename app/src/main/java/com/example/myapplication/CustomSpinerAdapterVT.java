@@ -11,13 +11,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.List;
 
-public class CustomAdapter_VatTu extends BaseAdapter {
+public class CustomSpinerAdapterVT extends BaseAdapter {
     DBHelper DBhelper;
     ArrayList<VatTu> arrayList;
 
-    public CustomAdapter_VatTu(ArrayList<VatTu> arrayList) {
+    public CustomSpinerAdapterVT(ArrayList<VatTu> arrayList) {
         this.arrayList = arrayList;
     }
 
@@ -39,32 +38,15 @@ public class CustomAdapter_VatTu extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         DBhelper= new DBHelper(parent.getContext(),"qlvc.sqlite",null,1);
-        View viewitem= View.inflate(parent.getContext(),R.layout.item_dsvt,null);
+        View viewitem= View.inflate(parent.getContext(),R.layout.dong_xem_vat_tu,null);
         VatTu VT= (VatTu) getItem(position);
-        TextView tvMaVT =(TextView) viewitem.findViewById(R.id.tvMaVT);
-        tvMaVT.setText("Mã Vật Tư: "+String.valueOf(VT.getMaVt()));
-        TextView tvTenVT =(TextView) viewitem.findViewById(R.id.tvTenVT);
+        TextView tvTenVT =(TextView) viewitem.findViewById(R.id.tvXemTenSP);
         tvTenVT.setText("Tên Vật Tư: "+VT.getTenVt());
-        TextView tvdvTinh =(TextView) viewitem.findViewById(R.id.tvDVT);
-        tvdvTinh.setText("ĐV Tính: "+VT.getDvTinh());
-        TextView tvGia =(TextView) viewitem.findViewById(R.id.tvGiaVC);
+        TextView tvGia =(TextView) viewitem.findViewById(R.id.tvXemGiaSP);
         tvGia.setText("Giá VC: "+String.valueOf(VT.getGiaVc()));
-        ImageView tvHinh =(ImageView) viewitem.findViewById(R.id.imHinh);
+        ImageView tvHinh =(ImageView) viewitem.findViewById(R.id.ivXemHinhSP);
         Bitmap bitmap= BitmapFactory.decodeByteArray(VT.getHinh(), 0, VT.getHinh().length);
         tvHinh.setImageBitmap(bitmap);
-
-        ImageView btnXoa =viewitem.findViewById(R.id.btnDeleteVT);
-        btnXoa.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.d("huy", arrayList.get(position).tenVt);
-
-                DBhelper.deleteVT(VT);
-
-                arrayList.remove(position);
-                notifyDataSetChanged();
-            }
-        });
 
 
         return viewitem;

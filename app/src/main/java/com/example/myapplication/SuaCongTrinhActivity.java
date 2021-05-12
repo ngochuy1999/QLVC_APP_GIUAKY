@@ -1,11 +1,14 @@
 package com.example.myapplication;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -90,5 +93,24 @@ public class SuaCongTrinhActivity extends AppCompatActivity {
         edtTenCT = findViewById(R.id.edtTenCT);
         edtDiaChi = findViewById(R.id.edtDiaChi);
         btnSuaCT = findViewById(R.id.btnSuaCT);
+    }
+    @Override
+    public boolean onCreatePanelMenu(int featureId, @NonNull Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_back, menu);
+        return super.onCreatePanelMenu(featureId, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.memu_home:
+                Intent intent =new Intent(this, MainActivity.class);
+                startActivity(intent);
+                break;
+            case  R.id.memu_back:
+                finish();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

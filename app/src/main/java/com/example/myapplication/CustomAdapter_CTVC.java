@@ -3,12 +3,14 @@ package com.example.myapplication;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
 public class CustomAdapter_CTVC extends BaseAdapter {
     ArrayList<ChiTietPVC> arrayList;
+    DBHelper DBhelper;
 
     public CustomAdapter_CTVC(ArrayList<ChiTietPVC> arrayList) {
         this.arrayList = arrayList;
@@ -31,6 +33,7 @@ public class CustomAdapter_CTVC extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+        DBhelper= new DBHelper(parent.getContext(),"qlvc.sqlite",null,1);
         View viewitem= View.inflate(parent.getContext(),R.layout.item_ctvc,null);
         ChiTietPVC Ctvc= (ChiTietPVC) getItem(position);
         TextView tvMaPVC =(TextView) viewitem.findViewById(R.id.tvMaPVC);
@@ -41,6 +44,18 @@ public class CustomAdapter_CTVC extends BaseAdapter {
         tvSL.setText(String.valueOf(Ctvc.getSoLuong()));
         TextView tvCuLy =(TextView) viewitem.findViewById(R.id.tvCuLy);
         tvCuLy.setText(Ctvc.getCuLy()+"km");
+
+        ImageView btnXoa =viewitem.findViewById(R.id.btnDelete);
+        btnXoa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                DBhelper.deleteCTVC(Ctvc);
+
+                arrayList.remove(position);
+                notifyDataSetChanged();
+            }
+        });
 
         return viewitem;
     }

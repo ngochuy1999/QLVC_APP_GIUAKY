@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Transport Management System</string>
+    <string name="app_name">Transport System</string>
     <string name="TenVT">Tên Vật Tư</string>
     <string name="maVT">Mã VT</string>
     <string name="GiaVC">Giá VC</string>
@@ -13,6 +13,7 @@
     <string name="ngayVC">Ngày Vận Chuyển</string>
     <string name="DSPVC">DANH SÁCH PHIẾU VẬN CHUYỂN</string>
     <string name="CTPVC">CHI TIẾT PHIẾU VẬN CHUYỂN</string>
+    <string name="TK">THỐNG KÊ SỐ LƯỢNG VẬT TƯ</string>
     <string name="SL">Số Lượng</string>
     <string name="Cly">Cự Ly</string>
     <string name="admin">admin</string>

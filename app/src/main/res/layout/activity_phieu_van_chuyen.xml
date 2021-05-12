@@ -60,7 +60,7 @@
                     android:layout_weight="1"
                     android:padding="10dp"
                     android:text="@string/MaCT"
-                    android:textAlignment="textEnd" />
+                    android:textAlignment="textStart" />
 
                 <TextView
                     android:id="@+id/txtNgayVC"

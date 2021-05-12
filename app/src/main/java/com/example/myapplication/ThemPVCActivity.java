@@ -3,6 +3,8 @@ package com.example.myapplication;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -12,6 +14,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.text.DateFormat;
@@ -103,5 +106,24 @@ public class ThemPVCActivity extends AppCompatActivity {
 
             }
         });
+    }
+    @Override
+    public boolean onCreatePanelMenu(int featureId, @NonNull Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_back, menu);
+        return super.onCreatePanelMenu(featureId, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.memu_home:
+                Intent intent =new Intent(this, MainActivity.class);
+                startActivity(intent);
+                break;
+            case  R.id.memu_back:
+                finish();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

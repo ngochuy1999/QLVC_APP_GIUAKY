@@ -1,25 +1,22 @@
 package com.example.myapplication;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 
 public class ThemCTVCActivity extends AppCompatActivity {
     DBHelper DBhelper;
@@ -56,7 +53,7 @@ public class ThemCTVCActivity extends AppCompatActivity {
             dsVT.add(vt);
         }
 
-        ArrayAdapter spinnerAdapterVT = new ArrayAdapter<>(this, R.layout.support_simple_spinner_dropdown_item, dsVT);
+        CustomSpinerAdapterVT spinnerAdapterVT = new CustomSpinerAdapterVT(dsVT);
         VTspinner.setAdapter(spinnerAdapterVT);
 
         PVCspinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -112,5 +109,24 @@ public class ThemCTVCActivity extends AppCompatActivity {
 
             }
         });
+    }
+    @Override
+    public boolean onCreatePanelMenu(int featureId, @NonNull Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_back, menu);
+        return super.onCreatePanelMenu(featureId, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.memu_home:
+                Intent intent =new Intent(this, MainActivity.class);
+                startActivity(intent);
+                break;
+            case  R.id.memu_back:
+                finish();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

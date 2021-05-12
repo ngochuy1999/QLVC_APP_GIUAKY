@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
-        <activity android:name=".SuaCongTrinhActivity"></activity>
+        <activity android:name=".SuaVatTuActivity"></activity>
+        <activity android:name=".SuaCongTrinhActivity" />
         <activity android:name=".ThemCTVCActivity" />
         <activity android:name=".ThongKeActivity" />
         <activity android:name=".ChiTietPVCActivity" />

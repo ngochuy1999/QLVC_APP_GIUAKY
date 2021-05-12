@@ -35,6 +35,34 @@ public class DBHelper extends SQLiteOpenHelper {
         statement.bindBlob(4,hinh);
         statement.executeInsert();
     }
+    public void deleteVT(VatTu vt)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "DELETE FROM vattu WHERE maVT='" + vt.getMaVt()+"'";
+        db.execSQL(query);
+    }
+    public void updateVT(String tenVT, String dvTinh, Float giaVC,byte[] hinh,int maVT)
+    {
+        SQLiteDatabase db=getWritableDatabase();
+        String sql="Update vattu set tenVT= ?,dvTinh=?,giaVC =?,hinh= ? where maVT=?";
+        SQLiteStatement statement=db.compileStatement(sql);
+        statement.clearBindings();
+        statement.bindString(1,tenVT);
+        statement.bindString(2,dvTinh);
+        statement.bindDouble(3,giaVC);
+        statement.bindBlob(4,hinh);
+        statement.bindLong(5,maVT);
+        statement.executeUpdateDelete();
+
+//        SQLiteDatabase db = this.getWritableDatabase();
+//        String sql = "Update  vattu  set ";
+//        sql += "tenVT  = '"+ tenVT +"' ,  ";
+//        sql += "dvTinh  = '"+ dvTinh +"' ,  ";
+//        sql += "giaVC  = '"+ giaVC +"' ,  ";
+//        sql += "hinh  = '"+hinh+"'";
+//        sql += "  WHERE maVT  = '"+ maVT+"'";
+//        db.execSQL(sql);
+    }
     void InsertCT(String maCT,String tenVT,String diaChi)
     {
         SQLiteDatabase db=getWritableDatabase();
@@ -61,6 +89,18 @@ public class DBHelper extends SQLiteOpenHelper {
         sql += "diachi  = '"+diachi+"'";
         sql += "  WHERE maCT  = '"+ maCT+"'";
         db.execSQL(sql);
+    }
+    public void deletePVC(PhieuVanChuyen phieuVanChuyen)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "DELETE FROM PVC WHERE maPVC='" + phieuVanChuyen.getMaPVC()+"'";
+        db.execSQL(query);
+    }
+    public void deleteCTVC(ChiTietPVC chiTietPVC)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "DELETE FROM chitietPVC WHERE maPVC='" + chiTietPVC.getMaPVC()+"' AND maVT='" + chiTietPVC.getMaVt()+"'";
+        db.execSQL(query);
     }
     @Override
     public void onCreate(SQLiteDatabase db) {
