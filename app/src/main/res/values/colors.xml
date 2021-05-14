@@ -16,4 +16,5 @@
     <color name="text_color">#95AFD1</color>
     <color name="mainTextColor">#453ec1</color>
     <color name="colorBlue">#97DFFF</color>
+    <color name="textGray">#616161</color>
 </resources>

@@ -8,6 +8,7 @@ import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
@@ -20,18 +21,20 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import static com.example.myapplication.ext.ConstExt.POSITION;
 
 public class SuaVatTuActivity extends AppCompatActivity {
 
-    private int REQUEST_CODE = 8888;
+    private int PICK_IMAGE = 8888;
     DBHelper DBhelper;
     EditText edtTenVT,edtDvTinh,edtGiaVC;
     ImageView imageView;
     Button btnSuaVT;
     int maVT;
+    Uri imageUri;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,12 +65,20 @@ public class SuaVatTuActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode==REQUEST_CODE&&resultCode==RESULT_OK)
-        {
-            Bitmap bitmap = (Bitmap) data.getExtras().get("data");
-            imageView.setImageBitmap(bitmap);
-        }
         super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode == PICK_IMAGE && resultCode == RESULT_OK){
+            imageUri = data.getData();
+            try {
+                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(),imageUri);
+                Bitmap bitmap1 = Bitmap.createScaledBitmap(bitmap,600,600,true);
+
+                imageView.setImageBitmap(bitmap1);
+            }catch (IOException e){
+                e.printStackTrace();
+            }
+        }
+
     }
 
     public byte[] ConverttoArrayByte(ImageView img)
@@ -83,11 +94,14 @@ public class SuaVatTuActivity extends AppCompatActivity {
 
     private void setEvent() {
        imageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent =new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                startActivityForResult(intent,REQUEST_CODE);
-            }
+           @Override
+           public void onClick(View v) {
+               Intent gallery = new Intent();
+               gallery.setType("image/*");
+               gallery.setAction(gallery.ACTION_GET_CONTENT);
+
+               startActivityForResult(Intent.createChooser(gallery,"Chọn Hình Ảnh"), PICK_IMAGE);
+           }
         });
 
         btnSuaVT.setOnClickListener(new View.OnClickListener() {

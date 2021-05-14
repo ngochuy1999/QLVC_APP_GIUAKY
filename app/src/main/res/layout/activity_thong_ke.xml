@@ -1,75 +1,140 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:orientation="vertical">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ThongKeActivity"
+    android:background="@color/grey">
 
-        <TextView
-            android:id="@+id/txtPVC"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="10dp"
-            android:text="@string/TK"
-            android:textAlignment="center"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="20dp"/>
+        <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:overScrollMode="never"
+        android:scrollbars="none"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:padding="5dp">
+            android:background="@color/white"
+            android:orientation="vertical">
 
-
-            <LinearLayout
-                android:id="@+id/listPVC"
+            <com.github.captain_miao.optroundcardview.OptRoundCardView
+                android:id="@+id/dateFilterLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center">
+                app:optRoundCardCornerRadius="0dp"
+                app:optRoundCardElevation="1.5dp">
 
-                <TextView
-                    android:id="@+id/txtMaPVC"
-                    android:layout_width="wrap_content"
+                <RelativeLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@color/grey"
+                    android:padding="15dp">
 
-                    android:padding="10dp"
-                    android:text="Mã VT"
-                    android:textAlignment="textStart" />
+                    <TextView
+                        android:id="@+id/date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="18sp"
+                        android:textColor="@color/textGray"
+                        android:layout_alignParentStart="true"
+                        android:layout_toStartOf="@id/dateFilter"
+                        android:layout_marginEnd="10dp"
+                        android:layout_centerVertical="true"/>
 
-                <TextView
-                    android:id="@+id/txtMACT"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:padding="10dp"
-                    android:text="@string/TenVT"
-                    android:textAlignment="center" />
+                    <ImageButton
+                        android:id="@+id/dateFilter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:background="@android:color/transparent"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="10dp"
+                        android:layout_centerVertical="true"/>
 
-                <TextView
-                    android:id="@+id/txtNgayVC"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="10dp"
-                    android:text="@string/SL"
-                    android:textAlignment="center" />
+                </RelativeLayout>
 
+            </com.github.captain_miao.optroundcardview.OptRoundCardView>
 
-            </LinearLayout>
+            <com.github.captain_miao.optroundcardview.OptRoundCardView
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:layout_margin="10dp"
+                android:background="@color/white">
 
-            <ListView
-                android:id="@+id/lvTK"
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.github.mikephil.charting.charts.BarChart
+                        android:id="@+id/chart1"
+                        android:layout_width="match_parent"
+                        android:layout_height="300dp"
+                        android:layout_above="@+id/seekBar1" />
+
+                    <SeekBar
+                        android:id="@+id/seekBar2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_margin="8dp"
+                        android:layout_toLeftOf="@+id/tvYMax"
+                        android:layout_marginRight="5dp"
+                        android:max="200"
+                        android:paddingBottom="12dp" />
+
+                    <SeekBar
+                        android:id="@+id/seekBar1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_above="@+id/seekBar2"
+                        android:layout_margin="8dp"
+                        android:layout_marginBottom="35dp"
+                        android:layout_toLeftOf="@+id/tvXMax"
+                        android:layout_marginRight="5dp"
+                        android:max="1500"
+                        android:paddingBottom="12dp" />
+
+                    <TextView
+                        android:id="@+id/tvXMax"
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/seekBar1"
+                        android:layout_alignParentRight="true"
+                        android:text="@string/dash"
+                        android:layout_marginBottom="15dp"
+                        android:layout_marginRight="10dp"
+                        android:gravity="right"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                    <TextView
+                        android:id="@+id/tvYMax"
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/seekBar2"
+                        android:layout_alignParentRight="true"
+                        android:text="@string/dash"
+                        android:layout_marginBottom="15dp"
+                        android:layout_marginRight="10dp"
+                        android:gravity="right"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                </RelativeLayout>
+
+            </com.github.captain_miao.optroundcardview.OptRoundCardView>
+
+            <com.github.captain_miao.optroundcardview.OptRoundCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                android:paddingBottom="10dp" />
+                android:layout_margin="10dp"
+                android:background="@color/white"/>
 
         </LinearLayout>
 
-    </LinearLayout>
-</LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</RelativeLayout>

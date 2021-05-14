@@ -90,7 +90,7 @@ public class ThemPVCActivity extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(), "Ngày giao phải lớn hơn ngày hiện tại", Toast.LENGTH_SHORT).show();
                         } else {
                             try {
-                                DBhelper.QueryData("insert into PVC values('"+MaPVC+"','" + dsCT.get(selected_position).getTenCT() + "','" + ngaychon + "')");
+                                DBhelper.QueryData("insert into PVC values('"+MaPVC+"','" + dsCT.get(selected_position).getMaCT() + "','" + ngaychon + "')");
                                 Toast.makeText(getApplicationContext(), "Thêm thành công!", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(ThemPVCActivity.this, PhieuVanChuyenActivity.class);
                                 startActivity(intent);
